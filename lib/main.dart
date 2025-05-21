@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Lesson'),
     );
   }
 }
@@ -50,29 +50,32 @@ class _MyHomePageState extends State<MyHomePage> {
         // RowやColumnを使わなくても、直接Childrenをかける
         body: ListView(
           children: [
-            Container(
-              color: Colors.blue,
-              height: 200,
+            // ListTileはListViewの子要素
+            // タイトルやアイコンを持ち、TODOアプリなどを作成できる
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text("地図"),
+              subtitle: Text("地図のサブタイトルです"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                // ここに押したときの処理を書く(匿名関数)
+              },
             ),
-            Container(
-              color: Colors.yellow,
-              height: 200,
+            ListTile(
+              leading: Icon(Icons.album),
+              title: Text("アルバム"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                // ここに押したときの処理を書く(匿名関数)
+              },
             ),
-            Container(
-              color: Colors.red,
-              height: 200,
-            ),
-            Container(
-              color: Colors.pink,
-              height: 200,
-            ),
-            Container(
-              color: Colors.purpleAccent,
-              height: 200,
-            ),
-            Container(
-              color: Colors.lightGreen,
-              height: 200,
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text("電話"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                // ここに押したときの処理を書く(匿名関数)
+              },
             ),
           ],
         ));
