@@ -42,42 +42,38 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          backgroundColor: Theme
+              .of(context)
+              .colorScheme
+              .inversePrimary,
           title: Text(widget.title),
         ),
 
-        // SingleChildScrollViewよりもパフォーマンスが良いので、大量データを扱う際はListView
-        // RowやColumnを使わなくても、直接Childrenをかける
-        body: ListView(
-          children: [
-            // ListTileはListViewの子要素
-            // タイトルやアイコンを持ち、TODOアプリなどを作成できる
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text("地図"),
-              subtitle: Text("地図のサブタイトルです"),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                // ここに押したときの処理を書く(匿名関数)
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.album),
-              title: Text("アルバム"),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                // ここに押したときの処理を書く(匿名関数)
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text("電話"),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                // ここに押したときの処理を書く(匿名関数)
-              },
-            ),
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 0.10),
+                child: Text(
+                  "パスワード"
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: 200,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ));
   }
 }
