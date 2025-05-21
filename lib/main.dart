@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -43,36 +42,39 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme
-              .of(context)
-              .colorScheme
-              .inversePrimary,
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: Row(
-          // Rowは横方向なのでMainは横方向の位置、Crossは縦方向の位置を表す
-          mainAxisAlignment: MainAxisAlignment.center,
-          // crossが表現する位置は、画面全体での位置ではなく、Column内での位置
-          crossAxisAlignment: CrossAxisAlignment.end,
 
-          children: [
-            Container(
-              color: Colors.blue,
-              width: 200,
-              height: 200,
-            ),
-            Container(
-              color: Colors.yellow,
-              width: 150,
-              height: 150,
-            ),
-            Container(
-              color: Colors.red,
-              width: 100,
-              height: 100,
-            )
-          ],
-        )
-    );
+        // Rowが画面をはみ出した場合にスクロールさせるウィジェット
+        // ※子ウィジェットを一度にビルドするため、パフォーマンス上の問題あり(項目数が多い場合はList viewを使う)
+        body: SingleChildScrollView(
+          // 横方向にスクロール
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            // Rowは横方向なのでMainは横方向の位置、Crossは縦方向の位置を表す
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossが表現する位置は、画面全体での位置ではなく、Column内での位置
+            crossAxisAlignment: CrossAxisAlignment.end,
+
+            children: [
+              Container(
+                color: Colors.blue,
+                width: 200,
+                height: 200,
+              ),
+              Container(
+                color: Colors.yellow,
+                width: 150,
+                height: 150,
+              ),
+              Container(
+                color: Colors.red,
+                width: 100,
+                height: 100,
+              )
+            ],
+          ),
+        ));
   }
 }
