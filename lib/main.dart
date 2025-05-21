@@ -49,8 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
               .inversePrimary,
           title: Text(widget.title),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+        body: Row(
+          // Rowは横方向なのでMainは横方向の位置、Crossは縦方向の位置を表す
+          mainAxisAlignment: MainAxisAlignment.center,
+          // crossが表現する位置は、画面全体での位置ではなく、Column内での位置
+          crossAxisAlignment: CrossAxisAlignment.end,
+
           children: [
             Container(
               color: Colors.blue,
